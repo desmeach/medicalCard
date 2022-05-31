@@ -1,0 +1,66 @@
+body {
+    margin-left: 15%;
+    margin-right: 15%;
+    font-family: 'Montserrat';
+    font-size: 20px;
+}
+
+#logo-text {
+    background: -webkit-linear-gradient(#58CFD6, #90FFA9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 24px;
+}
+
+#header-font {
+    font-weight: bold;
+}
+
+#diag-header-font {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+small {
+    color: gray;
+    font-size: 16px;
+}
+
+#diagnosis {
+    margin-top: 10px;
+}
+
+#button-add-complaint {
+    width: 35px;
+    height: 35px;
+}
+
+#button-add-diagnosis {
+    width: 35px;
+    height: 35px;
+}
+
+#button-add-secondary {
+    width: 35px;
+    height: 35px;
+}
+
+#button-add-somatic {
+    width: 35px;
+    height: 35px;
+}
+
+#button-remove {
+    width: 35px;
+    height: 35px;
+}
+
+#eye-switch {
+    margin: 0;
+    padding: 0;
+}
+
+#generate_but {
+    background: linear-gradient(#58CFD6, #90FFA9);
+    margin: 0 auto;
+}
