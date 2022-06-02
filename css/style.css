@@ -30,37 +30,12 @@ small {
     margin-top: 10px;
 }
 
-#button-add-complaint {
-    width: 35px;
-    height: 35px;
-}
-
-#button-add-diagnosis {
-    width: 35px;
-    height: 35px;
-}
-
-#button-add-secondary {
-    width: 35px;
-    height: 35px;
-}
-
-#button-add-somatic {
-    width: 35px;
-    height: 35px;
-}
-
-#button-remove {
-    width: 35px;
-    height: 35px;
-}
-
 #eye-switch {
     margin: 0;
     padding: 0;
 }
 
-#generate_but {
+#generate_button {
     background: linear-gradient(#58CFD6, #90FFA9);
     margin: 0 auto;
 }
