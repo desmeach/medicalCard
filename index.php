@@ -28,13 +28,24 @@ if (isset($_POST['submit']))
     </a>
     </nav>
     <form method='POST' name="form-submit" id="form-submit">
+        <label for="patient" class="form-label"><span id="header-font">Найти пациента</span></br><small>Мы не сохраняем персональные данные  пациентов, они </br> появятся только в необходимых строках истории болезни</small></label>
+        <div class="input-group mb-3" id="patient">
+            <table class="table" id="pation-field">
+                <tr>
+                    <td><input type="text" class="form-control rounded-pill" placeholder="ФИО" id="patient-name" name="patient-name"></td>
+                    <td><input type="text" class="form-control rounded-pill" placeholder="Дата рождения" id="patient-birthday" name="patient-birthday"></td>
+                    <td><input type="text" class="form-control rounded-pill" placeholder="ID пациента" id="patient-id" name="patient-id"></td>
+                    <td width="5%"><input type="image" width="35px" class="rounded-pill" src="<? $_SERVER["DOCUMENT_ROOT"] ?>/medicalCard/img/button-search.png" id="button-search" name="button-search" onclick="return false;"></td>
+                </tr>
+            </table>
+        </div>
         <label for="complaints" class="form-label"><span id="header-font">Введите жалобы пациента</span></br><small>Опишите, на что жалуется пациент</small></label>
         <div class="input-group mb-3" id="complaints">
             <table class="table" id="complaint-field">
                 <tr>
-                    <td><input type="text" class="form-control rounded-pill" placeholder="" id="eye-row" name="eye-row-complaints[]" autocomplete="off"></td>
-                    <td width="87%"><input type="text" class="form-control rounded-pill" placeholder="" id="complaint-row" name="complaint-row[]" autocomplete="off"></td>
-                    <td><input type="image" class="rounded-pill" src="img/button-add.png" id="button-add-complaint" name="button-add-complaint" onclick="return false;"></td>
+                    <td><input type="text" class="form-control rounded-pill" placeholder="Глаз" id="eye-row" name="eye-row-complaints[]" autocomplete="off"></td>
+                    <td width="86%"><input type="text" class="form-control rounded-pill" placeholder="Жалоба" id="complaint-row" name="complaint-row[]" autocomplete="off"></td>
+                    <td><input type="image" width="35px" class="rounded-pill" src="<? $_SERVER["DOCUMENT_ROOT"] ?>/medicalCard/img/button-add.png" id="button-add-complaint" name="button-add-complaint" onclick="return false;"></td>
                 </tr>
             </table>
         </div>
@@ -43,23 +54,23 @@ if (isset($_POST['submit']))
         <div class="input-group mb-3" id="anamnesis">
             <table class="table" id="anamnesis-field">
                 <tr>
-                    <td width="95%"><input type="text" class="form-control rounded-pill" placeholder="" id="anamnesis-row" name="anamnesis-row[]" autocomplete="off"></td>
+                    <td width="95%"><input type="text" class="form-control rounded-pill" placeholder="Анамнез" id="anamnesis-row" name="anamnesis-row[]" autocomplete="off"></td>
                     <td></td>
                 </tr>
             </table>
         </div>
 
-        <label for="diagnosis" class="form-label"><span id="header-font">Диагноз</span></br><small>Введите все диагнозы, которые нужно отразить в истории болезни, коды МКБ-11 добавятся автоматически</small></label>
+        <label for="diagnosis" class="form-label"><span id="header-font">Диагноз</span></br><small>Введите все диагнозы, которые нужно отразить в истории болезни, коды МКБ-10 добавятся автоматически</small></label>
         <div class="input-group mb-3" id="diagnosis" >
             <label for="diagnosis" class="form-label"><span id="diag-header-font">Основной диагноз</span></label>
             <div class="input-group mb-3" id="main-diagnosis">
                 <table class="table" id="main-diagnosis-field">
                     <tr>
-                        <td><input type="text" class="form-control rounded-pill" placeholder="" id="eye-row" name="eye-row-diag[]" autocomplete="off"></td>
-                        <td width="36%"><input type="text" class="form-control rounded-pill" placeholder="" id="diagnosis-row" name="diagnosis-row[]" autocomplete="off"></td>
-                        <td width="36%"><input type="text" class="form-control rounded-pill" placeholder="" id="diag-severity-row" name="diagnosis-row-stage[]" autocomplete="off"></td>
-                        <td width="15%"><input type="text" class="form-control rounded-pill" placeholder="" id="diag-code-row" name="diagnosis-code-row[]" autocomplete="off"></td>
-                        <td><input type="image" class="rounded-pill" src="img/button-add.png" id="button-add-diagnosis" name="button-add-diagnosis" onclick="return false;"></td>
+                        <td ><input type="text" class="form-control rounded-pill" placeholder="Глаз" id="eye-row" name="eye-row-diag[]" autocomplete="off"></td>
+                        <td width="44%"><input type="text" class="form-control rounded-pill" placeholder="Диагноз" id="diagnosis-row" name="diagnosis-row[]" autocomplete="off"></td>
+                        <td width="27%"><input type="text" class="form-control rounded-pill" placeholder="Степень тяжести" id="diag-severity-row" name="diagnosis-row-stage[]" autocomplete="off"></td>
+                        <td width="15%"><input type="text" class="form-control rounded-pill" placeholder="МКБ-10" id="diag-code-row" name="diagnosis-code-row[]" autocomplete="off"></td>
+                        <td><input type="image" width="35px" class="rounded-pill" src="<? $_SERVER["DOCUMENT_ROOT"] ?>/medicalCard/img/button-add.png" id="button-add-diagnosis" name="button-add-diagnosis" onclick="return false;"></td>
                     </tr>
                 </table>
             </div>
@@ -68,10 +79,10 @@ if (isset($_POST['submit']))
             <div class="input-group mb-3" id="secondary-diagnosis">
                 <table class="table" id="secondary-diagnosis-field">
                     <tr>
-                        <td><input type="text" class="form-control rounded-pill" placeholder="" id="eye-row" name="eye-row-sec[]" autocomplete="off"></td>
-                        <td width="72%"><input type="text" class="form-control rounded-pill" placeholder="" id="secondary-diagnosis-row" name="sec-diagnosis-row[]" autocomplete="off"></td>
-                        <td width="15%"><input type="text" class="form-control rounded-pill" placeholder="" id="secondary-diag-code-row" name="sec-diagnosis-code-row[]" autocomplete="off"></td>
-                        <td><input type="image" class="rounded-pill" src="img/button-add.png" id="button-add-secondary" name="button-add-secondary" onclick="return false;"></td>
+                        <td><input type="text" class="form-control rounded-pill" placeholder="Глаз" id="eye-row" name="eye-row-sec[]" autocomplete="off"></td>
+                        <td width="71%"><input type="text" class="form-control rounded-pill" placeholder="Диагноз" id="secondary-diagnosis-row" name="sec-diagnosis-row[]" autocomplete="off"></td>
+                        <td width="15%"><input type="text" class="form-control rounded-pill" placeholder="МКБ-10" id="secondary-diag-code-row" name="sec-diagnosis-code-row[]" autocomplete="off"></td>
+                        <td><input type="image" width="35px" class="rounded-pill" src="<? $_SERVER["DOCUMENT_ROOT"] ?>/medicalCard/img/button-add.png" id="button-add-secondary" name="button-add-secondary" onclick="return false;"></td>
                     </tr>
                 </table>
             </div>
@@ -80,15 +91,15 @@ if (isset($_POST['submit']))
             <div class="input-group mb-3" id="somatic-diagnosis">
                 <table class="table" id="somatic-diagnosis-field">
                     <tr>
-                        <td width="80%"><input type="text" class="form-control rounded-pill" placeholder="" id="somatic-diag-row" name="somatic-diag-row[]" autocomplete="off"></td>
-                        <td width="15%"><input type="text" class="form-control rounded-pill" placeholder="" id="somatic-code-row" name="somatic-code-row[]" autocomplete="off"></td>
-                        <td><input type="image" class="rounded-pill" src="img/button-add.png" id="button-add-somatic" name="button-add-somatic" onclick="return false;"></td>
+                        <td width="80%"><input type="text" class="form-control rounded-pill" placeholder="Диагноз" id="somatic-diag-row" name="somatic-diag-row[]" autocomplete="off"></td>
+                        <td width="15%"><input type="text" class="form-control rounded-pill" placeholder="МКБ-10" id="somatic-code-row" name="somatic-code-row[]" autocomplete="off"></td>
+                        <td><input type="image" width="35px" class="rounded-pill" src="<? $_SERVER["DOCUMENT_ROOT"] ?>/medicalCard/img/button-add.png" id="button-add-somatic" name="button-add-somatic" onclick="return false;"></td>
                     </tr>
                 </table>
             </div>
         </div>
         <div class="container text-center">
-            <button type="submit" name='submit' class="btn btn-primary btn-lg" id="generate_but">Сгенерировать выписку</button>
+            <button type="submit" name='submit' class="btn btn-primary btn-lg" id="generate_button">Сгенерировать выписку</button>
         </div>
     </form>
     <footer>
@@ -108,19 +119,19 @@ $(document).ready(function() {
     var i = 1;
     $('#button-add-complaint').click(function() {
         i++;
-        $('#complaint-field').append('<tr id="row'+i+'"><td><input type="text" class="form-control rounded-pill" placeholder="" id="eye-row" name="eye-row-complaints[]" autocomplete="off"></td><td width="87%"><input type="text" class="form-control rounded-pill" placeholder="" id="complaint-row" name="complaint-row[]" autocomplete="off"></td><td><input type="image" class="rounded-pill" src="img/button-remove.png" id="button-remove" name="'+i+'" onclick="return false;"></td></tr>');
+        $('#complaint-field').append('<tr id="row'+i+'"><td><input type="text" class="form-control rounded-pill" placeholder="Глаз" id="eye-row" name="eye-row-complaints[]" autocomplete="off"></td><td width="86%"><input type="text" class="form-control rounded-pill" placeholder="Жалоба" id="complaint-row" name="complaint-row[]" autocomplete="off"></td><td><input type="image" width="35px" class="rounded-pill" src="<? $_SERVER["DOCUMENT_ROOT"] ?>/medicalCard/img/button-remove.png" id="button-remove" name="'+i+'" onclick="return false;"></td></tr>');
     });
     $('#button-add-diagnosis').click(function() {
         i++;
-        $('#main-diagnosis-field').append('<tr id="row'+i+'"><td><input type="text" class="form-control rounded-pill" placeholder="" id="eye-row" name="eye-row-diag[]" autocomplete="off"></td><td width="36%"><input type="text" class="form-control rounded-pill" placeholder="" id="diagnosis-row" name="diagnosis-row[]" autocomplete="off"></td><td width="36%"><input type="text" class="form-control rounded-pill" placeholder="" id="diag-severity-row" name="diagnosis-row-stage[]" autocomplete="off"></td><td width="15%"><input type="text" class="form-control rounded-pill" placeholder="" id="diag-code-row" name="diagnosis-code-row[]" autocomplete="off"></td><td><input type="image" class="rounded-pill" src="img/button-remove.png" id="button-remove" name="'+i+'" onclick="return false;"></td></tr>');
+        $('#main-diagnosis-field').append('<tr id="row'+i+'"><td><input type="text" class="form-control rounded-pill" placeholder="Глаз" id="eye-row" name="eye-row-diag[]" autocomplete="off"></td><td width="44%"><input type="text" class="form-control rounded-pill" placeholder="Диагноз" id="diagnosis-row" name="diagnosis-row[]" autocomplete="off"></td><td width="27%"><input type="text" class="form-control rounded-pill" placeholder="Степень тяжести" id="diag-severity-row" name="diagnosis-row-stage[]" autocomplete="off"></td><td width="15%"><input type="text" class="form-control rounded-pill" placeholder="МКБ-10" id="diag-code-row" name="diagnosis-code-row[]" autocomplete="off"></td><td><input type="image" width="35px" class="rounded-pill" src="<? $_SERVER["DOCUMENT_ROOT"] ?>/medicalCard/img/button-remove.png" id="button-remove" name="'+i+'" onclick="return false;"></td></tr>');
     });
     $('#button-add-secondary').click(function() {
         i++;
-        $('#secondary-diagnosis-field').append('<tr id="row'+i+'"><td><input type="text" class="form-control rounded-pill" placeholder="" id="eye-row" name="eye-row-sec[]" autocomplete="off"></td><td width="72%"><input type="text" class="form-control rounded-pill" placeholder="" id="secondary-diagnosis-row" name="sec-diagnosis-row[]" autocomplete="off"></td><td width="15%"><input type="text" class="form-control rounded-pill" placeholder="" id="secondary-diag-code-row" name="sec-diagnosis-code-row[]" autocomplete="off"></td><td><input type="image" class="rounded-pill" src="img/button-remove.png" id="button-remove" name="'+i+'" onclick="return false;"></td></tr>');
+        $('#secondary-diagnosis-field').append('<tr id="row'+i+'"><td><input type="text" class="form-control rounded-pill" placeholder="Глаз" id="eye-row" name="eye-row-sec[]" autocomplete="off"></td><td width="71%"><input type="text" class="form-control rounded-pill" placeholder="Диагноз" id="secondary-diagnosis-row" name="sec-diagnosis-row[]" autocomplete="off"></td><td width="15%"><input type="text" class="form-control rounded-pill" placeholder="МКБ-10" id="secondary-diag-code-row" name="sec-diagnosis-code-row[]" autocomplete="off"></td><td><input type="image" width="35px" class="rounded-pill" src="<? $_SERVER["DOCUMENT_ROOT"] ?>/medicalCard/img/button-remove.png" id="button-remove" name="'+i+'" onclick="return false;"></td></tr>');
     });
     $('#button-add-somatic').click(function() {
         i++;
-        $('#somatic-diagnosis-field').append('<tr id="row'+i+'"><td width="80%"><input type="text" class="form-control rounded-pill" placeholder="" id="somatic-diag-row" name="somatic-diag-row[]" autocomplete="off"></td><td width="15%"><input type="text" class="form-control rounded-pill" placeholder="" id="somatic-code-row" name="somatic-code-row[]" autocomplete="off"></td><td><input type="image" class="rounded-pill" src="img/button-remove.png" id="button-remove" name="'+i+'" onclick="return false;"></td></tr>');
+        $('#somatic-diagnosis-field').append('<tr id="row'+i+'"><td width="80%"><input type="text" class="form-control rounded-pill" placeholder="Диагноз" id="somatic-diag-row" name="somatic-diag-row[]" autocomplete="off"></td><td width="15%"><input type="text" class="form-control rounded-pill" placeholder="МКБ-10" id="somatic-code-row" name="somatic-code-row[]" autocomplete="off"></td><td><input type="image" width="35px" class="rounded-pill" src="<? $_SERVER["DOCUMENT_ROOT"] ?>/medicalCard/img/button-remove.png" id="button-remove" name="'+i+'" onclick="return false;"></td></tr>');
     });
     $(document).on('click', '#button-remove', function() {
         var button_id = $(this).attr("name");

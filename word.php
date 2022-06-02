@@ -3,7 +3,7 @@ require 'vendor/autoload.php';
 
 $document = new \PhpOffice\PhpWord\TemplateProcessor('./templates/template.docx');
 
-$uploadDir = __DIR__;
+$uploadDir = $_SERVER["DOCUMENT_ROOT"] . "/docx";
 $outputFile = 'Выписка'.date('YmdHis').'.docx';
 
 $numDoc = 1;
