@@ -1,5 +1,5 @@
 <?php
-require_once('dbdata.php');
+require_once('db_config.php');
 try {
     $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUser, $dbPass);
     $sql = 'SELECT complaint FROM complaints';
