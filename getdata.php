@@ -23,6 +23,15 @@ try {
     $somaticDiagData = $stmt->fetchAll();
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage();
-    die();
+} finally {
+    $stmt = null;
+    $db = null;
 }
-?>
+
+
+/**
+ * @param $pdo PDO
+ * @return void
+ */
+function getPatientById(PDO $pdo) {
+}
