@@ -8,14 +8,14 @@ use RedBeanPHP\OODBBean;
 class RelationModel
 {
     /**
-     * @var Database
+     * @var IDatabase
      */
-    private Database $database;
+    private IDatabase $database;
 
     /**
-     * @param Database $database
+     * @param IDatabase $database
      */
-    public function __construct(Database $database)
+    public function __construct(IDatabase $database)
     {
         $this->database = $database;
     }

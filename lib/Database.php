@@ -3,7 +3,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 class_alias('\RedBeanPHP\R', '\R');
 
-class Database
+class Database implements IDatabase
 {
     private string $userName;
     private string $name;
