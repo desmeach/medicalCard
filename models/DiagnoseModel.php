@@ -3,13 +3,10 @@
 use RedBeanPHP\OODBBean;
 
 /**
- * Model for complaint table
+ * Model of diagnoses table
  */
-class ComplaintModel
+class DiagnoseModel
 {
-    /**
-     * @var IDatabase
-     */
     private IDatabase $database;
 
     /**
@@ -24,18 +21,18 @@ class ComplaintModel
      * @param int $id
      * @return OODBBean|null
      */
-    public function complaintById(int $id): ?OODBBean
+    public function diagnoseById(int $id): ?OODBBean
     {
-        return $this->complaintBy('id', $id);
+        return $this->diagnoseBy('id', $id);
     }
 
     /**
-     * @param string $value
+     * @param int $code
      * @return OODBBean|null
      */
-    public function complaintByValue(string $value): ?OODBBean
+    public function diagnoseByCode(int $code): ?OODBBean
     {
-        return $this->complaintBy("complaint", $value);
+        return $this->diagnoseBy('code', $code);
     }
 
     /**
@@ -43,20 +40,20 @@ class ComplaintModel
      * @param $value
      * @return OODBBean|null
      */
-    private function complaintBy(string $field, $value): ?OODBBean
+    private function diagnoseBy(string $field, $value): ?OODBBean
     {
-        $complaint = null;
+        $diagnose = null;
 
         try {
             $this->database->openConnection();
 
-            $complaint = R::findOne('patients', $field.' = ?', [$value]);
+            $diagnose = R::findOne('diagnoses', $field . ' = ?', $value);
         } catch (Exception $exception) {
-            print("Can't connect to database: " . $exception->getMessage());
+            print ("Can't get diagnose: " . $exception->getMessage());
         } finally {
             $this->database->closeConnection();
         }
 
-        return $complaint;
+        return $diagnose;
     }
 }

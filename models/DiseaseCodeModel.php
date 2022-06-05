@@ -2,14 +2,8 @@
 
 use RedBeanPHP\OODBBean;
 
-/**
- * Model for complaint table
- */
-class ComplaintModel
+class DiseaseCodeModel
 {
-    /**
-     * @var IDatabase
-     */
     private IDatabase $database;
 
     /**
@@ -20,43 +14,46 @@ class ComplaintModel
         $this->database = $database;
     }
 
+
     /**
      * @param int $id
      * @return OODBBean|null
      */
-    public function complaintById(int $id): ?OODBBean
+    public function diseaseById(int $id): ?OODBBean
     {
-        return $this->complaintBy('id', $id);
+        return $this->diseaseBy('id', $id);
     }
 
+
     /**
-     * @param string $value
+     * @param string $code
      * @return OODBBean|null
      */
-    public function complaintByValue(string $value): ?OODBBean
+    public function diseaseByCode(string $code): ?OODBBean
     {
-        return $this->complaintBy("complaint", $value);
+        return $this->diseaseBy('code', $code);
     }
+
 
     /**
      * @param string $field
      * @param $value
      * @return OODBBean|null
      */
-    private function complaintBy(string $field, $value): ?OODBBean
+    private function diseaseBy(string $field, $value): ?OODBBean
     {
-        $complaint = null;
+        $disease = null;
 
         try {
             $this->database->openConnection();
 
-            $complaint = R::findOne('patients', $field.' = ?', [$value]);
+            $disease = R::findOne('disease_code', $field . ' = ?', $value);
         } catch (Exception $exception) {
-            print("Can't connect to database: " . $exception->getMessage());
+            print ("Can't get disease: " . $exception->getMessage());
         } finally {
             $this->database->closeConnection();
         }
 
-        return $complaint;
+        return $disease;
     }
 }

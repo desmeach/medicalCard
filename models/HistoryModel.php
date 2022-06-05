@@ -3,14 +3,12 @@
 use RedBeanPHP\OODBBean;
 
 /**
- * Model for complaint table
+ * Model of histories table
  */
-class ComplaintModel
+class HistoryModel
 {
-    /**
-     * @var IDatabase
-     */
     private IDatabase $database;
+
 
     /**
      * @param IDatabase $database
@@ -20,43 +18,46 @@ class ComplaintModel
         $this->database = $database;
     }
 
+
     /**
      * @param int $id
      * @return OODBBean|null
      */
-    public function complaintById(int $id): ?OODBBean
+    public function historyByIdPatient(int $id): ?OODBBean
     {
-        return $this->complaintBy('id', $id);
+        return $this->historyBy('id_patient', $id);
     }
 
+
     /**
-     * @param string $value
+     * @param int $id
      * @return OODBBean|null
      */
-    public function complaintByValue(string $value): ?OODBBean
+    public function historyByIdConclusion(int $id): ?OODBBean
     {
-        return $this->complaintBy("complaint", $value);
+        return $this->historyBy('id_conclusion', $id);
     }
+
 
     /**
      * @param string $field
      * @param $value
      * @return OODBBean|null
      */
-    private function complaintBy(string $field, $value): ?OODBBean
+    private function historyBy(string $field, $value): ?OODBBean
     {
-        $complaint = null;
+        $history = null;
 
         try {
             $this->database->openConnection();
 
-            $complaint = R::findOne('patients', $field.' = ?', [$value]);
+            $history = R::findOne('histories', $field . ' = ?', $value);
         } catch (Exception $exception) {
-            print("Can't connect to database: " . $exception->getMessage());
+            print ("Can't get history: " . $exception->getMessage());
         } finally {
             $this->database->closeConnection();
         }
 
-        return $complaint;
+        return $history;
     }
 }
