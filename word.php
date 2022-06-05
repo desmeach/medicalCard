@@ -3,8 +3,7 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/medicalCard/vendor/autoload.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/medicalCard/diagnoses/Diagnosis.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/medicalCard/diagnoses/MainDiagnosis.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/medicalCard/diagnoses/SecondaryDiagnosis.php';
-require_once $_SERVER["DOCUMENT_ROOT"].'/medicalCard/diagnoses/ComplaintOSDiagnosis.php';
-require_once $_SERVER["DOCUMENT_ROOT"].'/medicalCard/diagnoses/ComplaintODDiagnosis.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/medicalCard/diagnoses/ComplaintDiagnosis.php';
 
 // class WordDocument
 // {
@@ -40,12 +39,12 @@ $outputFile = 'Выписка'.date('YmdHis').'.docx';
 
 $numDoc = 1;
 
-$complaintDiagnosis = new СomplaintODDiagnosis(new Diagnosis());
-$complaintDiagnosis->setDiagnoses("complaint-row", "eye-row-complaints");
+$complaintDiagnosis = new СomplaintDiagnosis(new Diagnosis());
+$complaintDiagnosis->setDiagnoses("complaint-row", "eye-row-complaints", "OD");
 $OD = $complaintDiagnosis->getDiagnoses();
 
-$complaintDiagnosis = new СomplaintOSDiagnosis(new Diagnosis());
-$complaintDiagnosis->setDiagnoses("complaint-row", "eye-row-complaints");
+$complaintDiagnosis = new СomplaintDiagnosis(new Diagnosis());
+$complaintDiagnosis->setDiagnoses("complaint-row", "eye-row-complaints", "OS");
 $OS = $complaintDiagnosis->getDiagnoses();
 
 $mainDiagnosis = new MainDiagnosis(new Diagnosis());

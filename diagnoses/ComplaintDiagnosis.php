@@ -4,18 +4,18 @@ include_once 'DiagnosisDecorator.php';
 /**
  ** Decorated diagnosis for left eye complaints
  **/
-class СomplaintOSDiagnosis extends DiagnosisDecorator
+class СomplaintDiagnosis extends DiagnosisDecorator
 {
-    protected function setDiagnosis($diagnosis, $eye = null, $diagnosisStage = null)
+    protected function setDiagnosis($diagnosis, $eye = null, $eyeName = null)
     {
         parent::setDiagnosis($diagnosis);
     }
 
-    public function setDiagnoses($diagnosisName, $eye = null, $diagnosisStage = null)
+    public function setDiagnoses($diagnosisName, $eyeRow = null, $eyeName = null)
     {
-        for ($i = 0; $i < count($_POST[$eye]); $i++)
+        for ($i = 0; $i < count($_POST[$eyeRow]); $i++)
         {
-            if ($_POST[$eye][$i] != "OD")
+            if ($_POST[$eyeRow][$i] === $eyeName || $_POST[$eyeRow][$i] === "OU")
                 $this->setDiagnosis($_POST[$diagnosisName][$i]);
         }
     }

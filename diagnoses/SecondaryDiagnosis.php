@@ -4,7 +4,7 @@ include_once 'DiagnosisDecorator.php';
 /**
  ** Decorated diagnosis for secondary diagnoses
  **/
-class SecondDiagnosis extends DiagnosisDecorator
+class SecondaryDiagnosis extends DiagnosisDecorator
 {
     protected function setDiagnosis($diagnosis, $eye = null, $diagnosisStage = null)
     {
