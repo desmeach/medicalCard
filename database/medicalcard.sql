@@ -1,9 +1,9 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Июн 02 2022 г., 21:04
+-- Время создания: Июн 05 2022 г., 23:43
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -116,10 +116,10 @@ INSERT INTO `disease_code` (`id`, `code`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `historys`
+-- Структура таблицы `histories`
 --
 
-CREATE TABLE IF NOT EXISTS `historys` (
+CREATE TABLE IF NOT EXISTS `histories` (
   `id_patient` int(11) NOT NULL AUTO_INCREMENT,
   `id_conclusion` int(11) NOT NULL,
   PRIMARY KEY (`id_patient`)
