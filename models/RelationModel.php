@@ -5,7 +5,7 @@ use RedBeanPHP\OODBBean;
 /**
  *  Model for relations table
  */
-class RelationsModel
+class RelationModel
 {
     /**
      * @var Database
