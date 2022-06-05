@@ -191,7 +191,7 @@ class СomplaintOSDiagnosis extends DiagnosisDecorator
                 $this->setDiagnosis($_POST[$diagnosisName][$i]);
         }
     }
-
+    
     public function getDiagnoses()
     {
         return parent::getDiagnoses();
