@@ -50,7 +50,7 @@ class ComplaintModel
         try {
             $this->database->openConnection();
 
-            $complaint = R::findOne('patients', $field.' = ?', [$value]);
+            $complaint = R::findOne('complaints', $field.' = ?', [$value]);
         } catch (Exception $exception) {
             print("Can't connect to database: " . $exception->getMessage());
         } finally {
