@@ -3,9 +3,9 @@
 use RedBeanPHP\OODBBean;
 
 /**
- * Model for complaint table
+ *  Model of somatic_diag table
  */
-class ComplaintModel
+class SomaticDiagnosisModel
 {
     /**
      * @var IDatabase
@@ -20,43 +20,46 @@ class ComplaintModel
         $this->database = $database;
     }
 
+
     /**
      * @param int $id
      * @return OODBBean|null
      */
-    public function complaintById(int $id): ?OODBBean
+    public function diagnosisById(int $id): ?OODBBean
     {
-        return $this->complaintBy('id', $id);
+        return $this->diagnosisBy('id', $id);
     }
 
+
     /**
-     * @param string $value
+     * @param int $code
      * @return OODBBean|null
      */
-    public function complaintByValue(string $value): ?OODBBean
+    public function diagnosisByCode(int $code): ?OODBBean
     {
-        return $this->complaintBy("complaint", $value);
+        return $this->diagnosisBy('code', $code);
     }
+
 
     /**
      * @param string $field
      * @param $value
      * @return OODBBean|null
      */
-    private function complaintBy(string $field, $value): ?OODBBean
+    private function diagnosisBy(string $field, $value): ?OODBBean
     {
-        $complaint = null;
+        $diagnosis = null;
 
         try {
             $this->database->openConnection();
 
-            $complaint = R::findOne('complaints', $field.' = ?', [$value]);
+            $diagnosis = R::findOne('somatic_diag', $field . ' = ?', $value);
         } catch (Exception $exception) {
-            print("Can't connect to database: " . $exception->getMessage());
+            print ("Cant get somatic diagnosis: " . $exception->getMessage());
         } finally {
             $this->database->closeConnection();
         }
 
-        return $complaint;
+        return $diagnosis;
     }
 }
