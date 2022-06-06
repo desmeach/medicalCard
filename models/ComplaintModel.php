@@ -26,7 +26,7 @@ class ComplaintModel
      */
     public function complaintById(int $id): ?OODBBean
     {
-        return $this->complaintBy('id', $id);
+        return $this->entryBy('id', $id);
     }
 
     /**
@@ -35,7 +35,7 @@ class ComplaintModel
      */
     public function complaintByValue(string $value): ?OODBBean
     {
-        return $this->complaintBy("complaint", $value);
+        return $this->entryBy("complaint", $value);
     }
 
     /**
@@ -43,7 +43,7 @@ class ComplaintModel
      * @param $value
      * @return OODBBean|null
      */
-    private function complaintBy(string $field, $value): ?OODBBean
+    private function entryBy(string $field, $value): ?OODBBean
     {
         $complaint = null;
 

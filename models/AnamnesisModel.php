@@ -26,7 +26,7 @@ class AnamnesisModel
      */
     public function anamnesisById(int $id): ?OODBBean
     {
-        return $this->anamnesisBy('id', $id);
+        return $this->entryBy('id', $id);
     }
 
     /**
@@ -35,7 +35,7 @@ class AnamnesisModel
      */
     public function anamnesisByName(string $name): ?OODBBean
     {
-        return $this->anamnesisBy('name', $name);
+        return $this->entryBy('name', $name);
     }
 
     /**
@@ -43,7 +43,7 @@ class AnamnesisModel
      * @param $value
      * @return OODBBean|null
      */
-    private function anamnesisBy(string $field, $value): ?OODBBean
+    private function entryBy(string $field, $value): ?OODBBean
     {
         $anamnesis = null;
 
