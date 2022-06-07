@@ -65,7 +65,10 @@ $anamnesesData->setDiagnoses("anamnesis-row");
 $anamneses = $anamnesesData->getDiagnoses();
 
 $curDate = date('d.m.Y');
+$patientBirthday = implode(".", (array_reverse(explode("-", $_POST["patient-birthday"]))));
 
+$document->setValue('patientName', $_POST["patient-name"]);
+$document->setValue('patientBirthday', $patientBirthday);
 $document->setValue('numDoc', $numDoc);
 $document->setValue('OD', $OD);
 $document->setValue('OS', $OS);
