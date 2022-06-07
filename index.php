@@ -33,7 +33,7 @@ if (isset($_POST['submit']))
             <table class="table" id="pation-field">
                 <tr>
                     <td><input type="text" class="form-control rounded-pill" placeholder="ФИО" id="patient-name" name="patient-name"></td>
-                    <td><input type="text" class="form-control rounded-pill" placeholder="Дата рождения" id="patient-birthday" name="patient-birthday"></td>
+                    <td><input type="date" class="form-control rounded-pill" placeholder="Дата рождения" id="patient-birthday" name="patient-birthday"></td>
                     <td><input type="text" class="form-control rounded-pill" placeholder="ID пациента" id="patient-id" name="patient-id"></td>
                     <td width="5%"><input type="image" width="35px" class="rounded-pill" src="<? $_SERVER["DOCUMENT_ROOT"] ?>/medicalCard/img/button-search.png" id="button-search" name="button-search" onclick="return false;"></td>
                 </tr>
