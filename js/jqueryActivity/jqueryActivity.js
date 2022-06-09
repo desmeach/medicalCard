@@ -38,7 +38,7 @@ function setOnClickActivity(activity, rowNum, name)
             buttonName: '#button-add-secondary'},
 
             somaticDiagnosis: 
-            {rowData: '<tr id="row'+rowNum+'"><td width="80%"><input type="text" class="form-control rounded-pill" placeholder="Диагноз" id="somatic-diag-row" name="somatic-diag-row[]" autocomplete="off"></td><td width="15%"><input type="text" class="form-control rounded-pill" placeholder="МКБ-10" id="somatic-code-row" name="somatic-code-row[]" autocomplete="off"></td><td><input type="image" width="35px" class="rounded-pill" src="./img/button-remove.png" id="button-remove" name="'+rowNum+'" onclick="return false;"></td></tr>',
+            {rowData: '<tr id="row'+rowNum+'"><td width="78%"><input type="text" class="form-control rounded-pill" placeholder="Диагноз" id="somatic-diag-row" name="somatic-diag-row[]" autocomplete="off"></td><td width="15%"><input type="text" class="form-control rounded-pill" placeholder="МКБ-10" id="somatic-code-row" name="somatic-code-row[]" autocomplete="off"></td><td><input type="image" width="35px" class="rounded-pill" src="./img/button-remove.png" id="button-remove" name="'+rowNum+'" onclick="return false;"></td></tr>',
             tableName: '#somatic-diagnosis-field', 
             buttonName: '#button-add-somatic'},
         },

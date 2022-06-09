@@ -1,7 +1,7 @@
 <?php require_once 'getdata.php';
 if (isset($_POST['submit']))
 {
-    require('word.php');
+    require($_SERVER["DOCUMENT_ROOT"].'/medicalCard/WordGenerator.php');
 }
 ?>
 
@@ -33,9 +33,9 @@ if (isset($_POST['submit']))
             <table class="table" id="pation-field">
                 <tr>
                     <td><input type="text" class="form-control rounded-pill" placeholder="ФИО" id="patient-name" name="patient-name"></td>
-                    <td><input type="text" class="form-control rounded-pill" placeholder="Дата рождения" id="patient-birthday" name="patient-birthday"></td>
+                    <td><input type="date" class="form-control rounded-pill" placeholder="Дата рождения" id="patient-birthday" name="patient-birthday"></td>
                     <td><input type="text" class="form-control rounded-pill" placeholder="ID пациента" id="patient-id" name="patient-id"></td>
-                    <td width="5%"><input type="image" width="35px" class="rounded-pill" src="<? $_SERVER["DOCUMENT_ROOT"] ?>/medicalCard/img/button-search.png" id="button-search" name="button-search" onclick="return false;"></td>
+                    <td width="2%"><input type="image" width="35px" class="rounded-pill" src="<? $_SERVER["DOCUMENT_ROOT"] ?>/medicalCard/img/button-search.png" id="button-search" name="button-search" onclick="return false;"></td>
                 </tr>
             </table>
         </div>
@@ -91,9 +91,9 @@ if (isset($_POST['submit']))
             <div class="input-group mb-3" id="somatic-diagnosis">
                 <table class="table" id="somatic-diagnosis-field">
                     <tr>
-                        <td width="80%"><input type="text" class="form-control rounded-pill" placeholder="Диагноз" id="somatic-diag-row" name="somatic-diag-row[]" autocomplete="off"></td>
+                        <td width="78%"><input type="text" class="form-control rounded-pill" placeholder="Диагноз" id="somatic-diag-row" name="somatic-diag-row[]" autocomplete="off"></td>
                         <td width="15%"><input type="text" class="form-control rounded-pill" placeholder="МКБ-10" id="somatic-code-row" name="somatic-code-row[]" autocomplete="off"></td>
-                        <td><input type="image" width="35px" class="rounded-pill" src="<? $_SERVER["DOCUMENT_ROOT"] ?>/medicalCard/img/button-add.png" id="button-add-somatic" name="button-add-somatic" onclick="return false;"></td>
+                        <td width="2%"><input type="image" width="35px" class="rounded-pill" src="<? $_SERVER["DOCUMENT_ROOT"] ?>/medicalCard/img/button-add.png" id="button-add-somatic" name="button-add-somatic" onclick="return false;"></td>
                     </tr>
                 </table>
             </div>
