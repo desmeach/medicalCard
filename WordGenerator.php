@@ -3,7 +3,7 @@
 use PhpOffice\PhpWord\Exception\CopyFileException;
 use PhpOffice\PhpWord\Exception\CreateTemporaryFileException;
 
-require_once $_SERVER["DOCUMENT_ROOT"].'/medicalCard/wordDocLib/WordDocumentClass.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/medicalCard/wordDocLib/WordDocument.php';
 
 try {
     $document = new WordDocument($_SERVER["DOCUMENT_ROOT"] . '/medicalCard/templates/template.docx', '/medicalCard/docs/');
